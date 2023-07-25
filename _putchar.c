@@ -11,3 +11,12 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+/**
+ * puts_mod - prints input buffer
+ * @str: buffer to print
+ */
+void puts_mod(char *str, unsigned int l)
+{
+	write(STDOUT_FILENO, str, l);
+}
