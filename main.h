@@ -81,14 +81,15 @@ void print_char(inventory_t *list);
 void print_percent(inventory_t *list);
 
 /* parse and match functionality */
-void parse_specifiers(inventory_t *list);
+void parse_specifier(inventory_t *list);
 int finalize_inventory(inventory_t *list);
 void (*get_specifier_func(inventory_t *list))(inventory_t *);
 
 /* hexadecimal */
 
 /* integers */
-void print_int(inventory_t *list)
+void print_integers(inventory_t *list, int n);
+void print_int(inventory_t *list);
 
 /* octals */
 
