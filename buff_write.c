@@ -3,7 +3,7 @@
  * write_buffer - adds input char to buffer 1 at a time
  * @list: the arguments inventory with most commonly used arguments
  */
-void write_buffer(inventory_t *list)
+void write_buffer(inventory_t *list);
 {
 	unsigned int old, new;
 	char *temp;
@@ -31,7 +31,7 @@ void write_buffer(inventory_t *list)
  * @list: the arguments inventory with most commonly used arguments
  * @str: string to print
  */
-void puts_buffer(inventory_t *list, char *str)
+void puts_buffer(inventory_t *list, char *str);
 {
 	int i, l;
 
