@@ -79,11 +79,9 @@ void (*get_specifier_func(inventory_t *list))(inventory_t);
 /* hexadecimal */
 
 /* integers */
+void print_int(inventory_t *list)
 
 /* octals */
-
-
-/* handles specifier functions */
 
 
 #endif /* end include guard for header files */
