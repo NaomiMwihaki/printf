@@ -65,3 +65,55 @@ void parse_specifiers(inventory_t *list)
 	list->c2 = list->c1 ? list->fmt[i++] : '\0';
 	list->c3 = list->c2 ? list->fmt[i] : '\0';
 }
+
+/**
+* finalize_inventory - terminates _printf() in error cases
+* @list: the arguments inventory with most commonly used arguments
+* Return: -1 always
+*/
+Int finalize_inventory(inventory_t *list)
+{
+int ret_value;
+if (list)
+{
+ret_value = list->error ? -1 : list->buf_index;
+if (list->i)
+puts_mod(list->buffer, list->buf_index);
+va_end(*(list->arguments));
+if (list->buffer)
+free(list->buffer);
+free(list);
+}
+else
+ret_value = -1;
+return (ret_value);
+}
+
+/* matchcases*/
+/**
+* get_specifier_func - matches specifier function for each conversion specifier
+*
+* @list: the arguments inventory with most commonly used arguments
+* Return: pointer to the helper function or NULL
+*/
+void (*get_specifier_func(inventory_t *list))(inventory_t *)
+{
+int i = 0;
+char check = list->ch1;
+static get_t specifiers_list[] = {
+{'d', print_int}, {'i', print_int}, {'x', print_lowhex}, {'X', print_uphex},
+{'o', print_octal}, {'u', print_unsigned}, {'c', print_char}, {'s', print_string},
+{'%', print_percent}, {'b', print_binary}, {'p', print_pointer},
+{'r', print_rev_string}, {'R', print_rot13}, {'S', print_non_printable}, {'\0', NULL}
+};
+while (specifiers_list[i].ch != '0')
+{
+if (specifiers_list[i].ch == check)
+{
+list->i++;
+return specifiers_list[i].func;
+}
+i++;
+}
+return NULL;
+}
