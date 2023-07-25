@@ -72,6 +72,7 @@ int _putchar(char c);
 void puts_mod(char *str, unsigned int l);
 void print_char(inventory_t *list);
 void print_string(inventory_t *list);
+int _strlen(char *s)
 
 /* prints a character*/
 void print_char(inventory_t *list);
@@ -82,7 +83,7 @@ void print_percent(inventory_t *list);
 /* parse and match functionality */
 void parse_specifiers(inventory_t *list);
 int finalize_inventory(inventory_t *list);
-void (*get_specifier_func(inventory_t *list))(inventory_t);
+void (*get_specifier_func(inventory_t *list))(inventory_t *);
 
 /* hexadecimal */
 

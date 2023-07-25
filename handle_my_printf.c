@@ -100,7 +100,7 @@ void (*get_specifier_func(inventory_t *list))(inventory_t *)
 {
 	int i = 0;
 	char check = list->ch1;
-	void print_int(inventory_t *list)
+	static get_t specifier_list(inventory_t *list)
 	 {
 		{'d', print_int}, {'i', print_int}, {'x', print_lowhex},
 		{'X', print_uphex}, {'o', print_octal}, {'u', print_unsigned},
