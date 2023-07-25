@@ -47,20 +47,19 @@ typedef struct inventory_s
 } inventory_t;
 
 /**
- * struct matches_s - printf specifiers and paired function
+ * struct get_s - printf specifiers and paired function
  * @ch: the specifier
  * @func: pointer to the conversion specifier function
  */
-typedef struct matches_s
+typedef struct get_s
 {
 	char ch;
 	void (*func)(inventory_t *list);
-} matches_t;
+} get_t;
 
 /* initializing and ending functions */
 int _printf(const char *format, ...);
 inventory_t *build_inventory(va_list *arguments, const char *format);
-int end_func(inventory_t *arg_list);
 
 /* custom memory allocation and buffer */
 void *_calloc(unsigned int nmemb, unsigned int size);
@@ -70,10 +69,12 @@ void puts_buffer(inventory_t *list, char *str);
 
 /* string functions */
 int _putchar(char c);
+void puts_mod(char *str, unsigned int l);
 
 /* parse and match functionality */
-void (*match_specifier(inventory_t *list))(inventory_t *list);
 void parse_specifiers(inventory_t *list);
+int finalize_inventory(inventory_t *list);
+void (*get_specifier_func(inventory_t *list))(inventory_t);
 
 /* hexadecimal */
 
