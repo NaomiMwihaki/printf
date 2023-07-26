@@ -4,7 +4,7 @@
 * @list: the arguments inventory with most commonly used arguments
 * Return: number of chars wrote to buffer
 */
-void print_char(inventory_t *list)
+void print_char(inventory_t *list);
 {
 list->ch0 = va_arg(*(list->arguments), int);
 write_buffer(list);
@@ -15,7 +15,7 @@ write_buffer(list);
 * Return: number of chars wrote to buffer
 */
 void print_percent(inventory_t *list)
-{
+	{
 list->ch0 = '%';
 if (list->space)
 {
@@ -30,7 +30,7 @@ write_buffer(list);
 * Return: number of chars wrote to buffer
 */
 void print_string(inventory_t *list)
-{
+	{
 int l;
 char *string, *null_string;
 string = va_arg(*(list->arguments), char *);
@@ -48,12 +48,12 @@ puts_buffer(list, string);
 * Return: length
 */
 int _strlen(char *s)
-{
+	{
 int longi = 0;
 while (*s != '\0')
-{
+	{
 longi++;
 s++;
-}
+}		
 return (longi);
 }
