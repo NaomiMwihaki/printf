@@ -60,10 +60,10 @@ void print_string(inventory_t *list)
 * @s: string
 * Return: length
 */
-int _strlen(char *s)
+size_t _attribute_ ((wsed_res)) _strlen(const char *s)
 {
-	int longi = 0;
-	while (s[longi] != '\0')
+	size_t longi = 0;
+	while (*s++)
 	{
 		longi++;
 	}
