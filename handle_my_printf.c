@@ -26,7 +26,7 @@ inventory_t *build_inventory(va_list *arguments, const char *format)
 	}
 
 	return (list);
-}	
+}
 
 
 /**
@@ -92,7 +92,7 @@ int finalize_inventory(inventory_t *list)
 
 /**
 * get_specifier_func - matches specifier function for each conversion specifier
-* 
+*
 * @list: the arguments inventory with most commonly used arguments
 * Return: pointer to the helper function or NULL
 */
@@ -100,8 +100,7 @@ void (*get_specifier_func(inventory_t *list))(inventory_t *list)
 {
 	int i = 0;
 	char check = list->ch1;
-	static get_t specifier_list[] =
-	 {
+	static get_t specifier_list[] = {
 		{'d', print_int}, {'i', print_int}, {'x', print_lowhex},
 		{'X', print_uphex}, {'o', print_octal}, {'u', print_unsigned},
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},

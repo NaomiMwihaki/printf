@@ -15,25 +15,15 @@ void print_char(inventory_t *list);
 * Return: number of chars wrote to buffer
 */
 void print_percent(inventory_t *list)
-<<<<<<< HEAD
-	{
-list->ch0 = '%';
-if (list->space)
-{
-list->space = 0;
-list->buffer[--(list->buf_index)] = '\0';
-}
-write_buffer(list);
-=======
 {
 	list->ch0 = '%';
+
 	if (list->space)
 	{
 		list->space = 0;
 		list->buffer[--(list->buf_index)] = '\0';
 	}
 	write_buffer(list);
->>>>>>> 2432bf2f6cd236af58ecfa21a5dea0de7486c520
 }
 /**
 * print_string - writes string to buffer or stdout
@@ -44,6 +34,7 @@ void print_string(inventory_t *list)
 {
 	int l;
 	char *string, *null_string;
+
 	string = va_arg(*(list->arguments), char *);
 	null_string = "(null)";
 
@@ -60,9 +51,10 @@ void print_string(inventory_t *list)
 * @s: string
 * Return: length
 */
-size_t _attribute_ ((wsed_res)) _strlen(const char *s)
+size_t __attribute__ ((wsed_res)) _strlen(const char *s)
 {
 	size_t longi = 0;
+
 	while (*s++)
 	{
 		longi++;

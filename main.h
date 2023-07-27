@@ -21,7 +21,7 @@
  * struct inventory_s - inventory of common variables needed
  * @fmt: the input format string
  * @i: index to traverse the format string
- * @args: the variadic arguments list of input arguments
+ * @arguments: the variadic arguments list of input arguments
  * @buffer: buffer to be written to before writing to stdout
  * @buf_index: index to traverse the buffer, also total chars written
  * @flag: notifies if there was a modifier flag
@@ -51,7 +51,7 @@ typedef struct inventory_s
  * @ch: the specifier
  * @func: pointer to the conversion specifier function
  */
-typedef struct
+typedef struct get_s
 {
 	char ch;
 	void (*func)(inventory_t *list);
@@ -72,7 +72,7 @@ int _putchar(char c);
 void puts_mod(char *str, unsigned int l);
 void print_char(inventory_t *list);
 void print_string(inventory_t *list);
-size_t _attribute_ ((wsed_res)) _strlen(const char *s);
+size_t __attribute__ ((wsed_res)) _strlen(const char *s);
 
 /* prints a character*/
 void print_char(inventory_t *list);

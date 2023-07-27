@@ -52,7 +52,7 @@ void print_hex(inventory_t *list, unsigned long int n, int hexcase, int size)
 }
 
 /**
- * print_lowhex - writes unsigned integer to buffer in base hexidecimal downcase
+ * print_lowhex - writes unsigned integer to buffer in base hexidec downcase
  * @list: the arguments inventory with most commonly used arguments
  */
 void print_lowhex(inventory_t *list)
