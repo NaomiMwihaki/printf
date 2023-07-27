@@ -86,7 +86,10 @@ int finalize_inventory(inventory_t *list);
 void (*get_specifier_func(inventory_t *list))(inventory_t *list);
 
 /* hexadecimal */
-
+void print_binary(inventory_t *list)
+void print_hex(inventory_t *list, unsigned long int n, int hexcase, int size)
+void print_lowhex(inventory_t *list)
+void print_uphex(inventory_t *list)
 /* integers */
 void print_integers(inventory_t *list, int n);
 void print_int(inventory_t *list);
