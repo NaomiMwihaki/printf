@@ -72,7 +72,7 @@ int _putchar(char c);
 void puts_mod(char *str, unsigned int l);
 void print_char(inventory_t *list);
 void print_string(inventory_t *list);
-size_t __attribute__ ((wsed_res)) _strlen(const char *s);
+size_t __attribute__ ((warn_unused_result)) _strlen(const char *s);
 
 /* prints a character*/
 void print_char(inventory_t *list);

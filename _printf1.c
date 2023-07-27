@@ -51,7 +51,7 @@ void print_string(inventory_t *list)
 * @s: string
 * Return: length
 */
-size_t __attribute__ ((wsed_res)) _strlen(const char *s)
+size_t __attribute__ ((warn_unused_result)) _strlen(const char *s)
 {
 	size_t longi = 0;
 
