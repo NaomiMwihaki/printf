@@ -51,7 +51,7 @@ typedef struct inventory_s
  * @ch: the specifier
  * @func: pointer to the conversion specifier function
  */
-typedef struct get_t
+typedef struct
 {
 	char ch;
 	void (*func)(inventory_t *list);
@@ -65,14 +65,14 @@ inventory_t *build_inventory(va_list *arguments, const char *format);
 void *_calloc(unsigned int nmemb, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void write_buffer(inventory_t *list);
-void puts_buffer(inventory_t *list, char *str);
+void puts_buffer(inventory_t *list, char *s);
 
 /* string functions */
 int _putchar(char c);
 void puts_mod(char *str, unsigned int l);
 void print_char(inventory_t *list);
 void print_string(inventory_t *list);
-int _strlen(char *s)
+int _strlen(char *s);
 
 /* prints a character*/
 void print_char(inventory_t *list);
@@ -83,7 +83,7 @@ void print_percent(inventory_t *list);
 /* parse and match functionality */
 void parse_specifier(inventory_t *list);
 int finalize_inventory(inventory_t *list);
-void (*get_specifier_func(inventory_t *list))(inventory_t *);
+void (*get_specifier_func(inventory_t *list))(inventory_t *list);
 
 /* hexadecimal */
 

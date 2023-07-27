@@ -92,11 +92,11 @@ int finalize_inventory(inventory_t *list)
 
 /**
 * get_specifier_func - matches specifier function for each conversion specifier
-* @func: pointer 
+* 
 * @list: the arguments inventory with most commonly used arguments
 * Return: pointer to the helper function or NULL
 */
-void (*get_specifier_func(inventory_t *list))(inventory_t *)
+void (*get_specifier_func(inventory_t *list))(inventory_t *list)
 {
 	int i = 0;
 	char check = list->ch1;

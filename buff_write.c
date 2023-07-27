@@ -29,17 +29,17 @@ void write_buffer(inventory_t *list)
 /**
  * puts_buffer - puts string to buffer without newline
  * @list: the arguments inventory with most commonly used arguments
- * @str: string to print
+ * @s: string to print
  */
-void puts_buffer(inventory_t *list, char *str)
+void puts_buffer(inventory_t *list, char *s)
 {
 	int i, l;
 
-	l = _strlen(str);
+	l = _strlen(s);
 
 	for (i = 0; i < l; i++)
 	{
-		list->ch0 = str[i];
+		list->ch0 = s[i];
 		write_buffer(list);
 	}
 }
