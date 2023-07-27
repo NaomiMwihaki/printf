@@ -6,7 +6,7 @@
  * Return: struct of arguments initialized
  */
 inventory_t *build_inventory(va_list *arguments, const char *format)
-{
+	{
 	inventory_t *list;
 
 	list = malloc(sizeof(inventory_t) * 1);
@@ -26,7 +26,7 @@ inventory_t *build_inventory(va_list *arguments, const char *format)
 	}
 
 	return (list);
-}
+}	
 
 
 /**
@@ -34,7 +34,7 @@ inventory_t *build_inventory(va_list *arguments, const char *format)
  * @list: the arguments inventory
  */
 void parse_specifier(inventory_t *list)
-{
+	{
 	int j, i = list->i + 1, space = 0;
 	static const char flags[] = "hl+#";
 
@@ -72,7 +72,7 @@ void parse_specifier(inventory_t *list)
 * Return: -1 always
 */
 int finalize_inventory(inventory_t *list)
-{
+	{
 	int ret_value;
 
 	if (list)
@@ -96,8 +96,13 @@ int finalize_inventory(inventory_t *list)
 * @list: the arguments inventory with most commonly used arguments
 * Return: pointer to the helper function or NULL
 */
+<<<<<<< HEAD
 void (*get_specifier_func(inventory_t *list))(inventory_t *list)
 {
+=======
+void (*get_specifier_func(inventory_t *list))(inventory_t *)
+	{
+>>>>>>> 86ad2331000ab8a1183bf9c4803a9c0dd7a79f8e
 	int i = 0;
 	char check = list->ch1;
 	static get_t specifier_list[] =
