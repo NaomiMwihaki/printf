@@ -83,6 +83,8 @@ void print_pointer(inventory_t *list);
 
 /* prints a percent*/
 void print_percent(inventory_t *list);
+void print_unsign(inventory_t *list, unsigned long int n);
+void print_unsigned(inventory_t *list);
 
 
 /* parse and match functionality */

@@ -105,7 +105,7 @@ void (*get_specifier_func(inventory_t *list))(inventory_t *list)
 		{'X', print_uphex}, {'o', print_octal}, {'u', print_unsigned},
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'b', print_binary}, {'p', print_pointer}, {'r', print_rev_string},
-		{'R', print_rot13}, {'S', print_non_printable}, {'\0', NULL}
+		{'R', print_rot13}, {'\0', NULL}
 	};
 	while (specifier_list[i].ch != '0')
 	{
