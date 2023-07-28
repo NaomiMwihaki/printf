@@ -73,12 +73,17 @@ void puts_mod(char *str, unsigned int l);
 void print_char(inventory_t *list);
 void print_string(inventory_t *list);
 size_t __attribute__ ((warn_unused_result)) _strlen(const char *s);
+void print_rot13(inventory_t *list);
+void print_rev_string(inventory_t *list);
 
 /* prints a character*/
 void print_char(inventory_t *list);
+void p_string_hex(inventory_t *list);
+void print_pointer(inventory_t *list);
 
 /* prints a percent*/
 void print_percent(inventory_t *list);
+
 
 /* parse and match functionality */
 void parse_specifier(inventory_t *list);
@@ -95,6 +100,7 @@ void print_integers(inventory_t *list, int n);
 void print_int(inventory_t *list);
 
 /* octals */
-void print_octal(const struct inventory_t* list);
+void print_oct(inventory_t *list, unsigned long int n, int size);
+void print_octal(inventory_t *list);
 
 #endif /* end include guard for header files */

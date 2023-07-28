@@ -1,54 +1,59 @@
-#include <stdio.h>
-#include "inventory.h"
+#include "main.h"
 
 /**
- * print_octal - Print octal representation of an integer.
- * main - Function starts
- * @value: The integer value to be printed in octal.
+ * print_oct- writes unsigned long integer to buffer or stdout in base 8
+ * @list: the arguments inventory with most commonly used arguments
+ * @n: integer to be printed in octal
+ * @size: the size to be malloc'd
  */
-void print_octal(int value)
+void print_oct(inventory_t *list, unsigned long int n, int size)
 {
-	printf("Octal representation: %o\n", value);
-}
+	int i, j;
+	char *octal, *copy;
 
-/**
- * print_octal - Print octal representation of inventory data.
- * @list: Pointer to the inventory structure.
- */
-void print_octal(const inventory_t *list)
-{
-	/*Check if the list is not NULL*/
-	if (list == NULL)
+	if (!n)
 	{
-	printf("Error: NULL inventory list!\n");
-	return;
+		list->ch0 = '0';
+		write_buffer(list);
 	}
-
-	/*Print the octal representation of the inventory fields*/
-	/* For example:*/
-	/*printf("Item ID (octal): %o\n", list->item_id);*/
-	/*printf("Item Quantity (octal): %o\n", list->quantity);*/
-	/*... (print other fields as needed)*/
+	else
+	{
+		octal = _calloc(size, sizeof(char));
+		if (octal)
+		{
+			for (i = 0; n; i++, n /= 8)
+				octal[i] = (n % 8 + '0');
+			copy = _calloc(i + 1, sizeof(char));
+			if (copy)
+			{
+				for (j = 0, i--; i >= 0; j++, i--)
+					copy[j] = octal[i];
+				if (list->ch1 == '#')
+				{
+					list->ch0 = '0';
+					write_buffer(list);
+				}
+				puts_buffer(list, copy);
+				free(copy);
+			}
+			else
+				list->error = 1;
+			free(octal);
+		}
+		else
+			list->error = 1;
+	}
 }
 
 /**
- * main - Entry point of the program.
- * Return: 0 on success.
+ * print_octal- writes unsigned integer to buffer in base 8: octal
+ * @list: the arguments inventory with most commonly used arguments
  */
-int main(void)
+void print_octal(inventory_t *list)
 {
-	/*Example usage of the print_oct function*/
-	int exampleValue = 42;
+	unsigned int n;
 
-	print_octal(exampleValue);
+	n = va_arg(*(list->arguments), int);
 
-	/*Example usage of the print_octal function with inventory data*/
-	/*inventory_t item1;*/
-	/*item1.item_id = 1234;*/
-	/*item1.quantity = 42;*/
-
-	print_octal(&item1);
-
-	return (0);
+	print_oct(list, (unsigned long int)n, 12);
 }
-

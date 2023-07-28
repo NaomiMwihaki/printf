@@ -4,7 +4,7 @@
 * @list: the arguments inventory with most commonly used arguments
 * Return: number of chars wrote to buffer
 */
-void print_char(inventory_t *list);
+void print_char(inventory_t *list)
 {
 	list->ch0 = va_arg(*(list->arguments), int);
 	write_buffer(list);

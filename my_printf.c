@@ -45,7 +45,6 @@ int _printf(const char *format, ...)
 				}
 			}
 		list->i++;
-		
-	return (finalize_inventory(list));
 	}
+	return (finalize_inventory(list));
 }
